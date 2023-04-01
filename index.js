@@ -11,7 +11,7 @@ let getMovie = () => {
     // se a entrada for um campo vazio
 
     if (movieName.length <= 0) {
-        result.innerHTML = `<h3 class="msg">Please entre a movie name</h3>`;
+        result.innerHTML = `<h3 class="msg">Please enter a movie name</h3>`;
     }
 
     // se a entrada não estiver vazia
@@ -21,15 +21,15 @@ let getMovie = () => {
             // se o filme existir no banco de dados
             if(data.Response == "True") {
                 result.innerHTML = `
-                <div class="info">
-                    <img src=${data.Poster} class="poster">
-                    </div>
-                        <h2>${data.Title}</h2>
-                        <div class="rating">
-                            <img src="./star-icon.svg">
-                            <h4>${data.imdbRating}</h4>
+                    <div class="info">
+                        <img src=${data.Poster} class="poster">
+                        <div>
+                            <h2>${data.Title}</h2>
+                            <div class="rating">
+                                <img src="./star-icon.svg">
+                                <h4>${data.imdbRating}</h4>
                             </div>
-                            <div class="details"></div>
+                            <div class="details">
                                 <span>${data.Rated}</span>
                                 <span>${data.Year}</span>
                                 <span>${data.Runtime}</span>
@@ -39,10 +39,11 @@ let getMovie = () => {
                             </div>
                         </div>
                     </div>
-                        <h3>Plot:</h3>
-                        <p>${data.Plot}</p>
-                        <h3>Cast:</h3>
-                        <p>${data.Actors}</p>
+                    <h3>Plot:</h3>
+                    <p>${data.Plot}</p>
+                    <h3>Cast:</h3>
+                    <p>${data.Actors}</p>
+                
                 `;
             }
 
